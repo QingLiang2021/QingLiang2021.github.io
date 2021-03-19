@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客搭建(三)：Typora + PicGo + GitHub/Gitee图床, Insist">
+    <meta name="keywords" content="博客搭建(三)：Typora + PicGo + Gitee图床, Insist">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>博客搭建(三)：Typora + PicGo + GitHub/Gitee图床 | Insist</title>
+    <title>博客搭建(三)：Typora + PicGo + Gitee图床 | Insist</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,7 +315,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博客搭建(三)：Typora + PicGo + GitHub/Gitee图床</h1>
+                    <h1 class="description center-align post-title">博客搭建(三)：Typora + PicGo + Gitee图床</h1>
                 </div>
             </div>
         </div>
@@ -471,17 +471,82 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、应用介绍"><a href="#一、应用介绍" class="headerlink" title="一、应用介绍"></a>一、应用介绍</h2><h3 id="1、PicGo"><a href="#1、PicGo" class="headerlink" title="1、PicGo"></a>1、PicGo</h3><p>PicGo 是一位中国开发者基于 electron-vue 开发的用于快速上传图片并获取图片 URL 链接的开源工具，GitHub主页：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>，作者博客：<a target="_blank" rel="noopener" href="https://molunerfinn.com/">MARKSZのBlog</a>。</p>
+                <h2 id="1、PicGo"><a href="#1、PicGo" class="headerlink" title="1、PicGo"></a>1、PicGo</h2><p>PicGo 是一位中国开发者基于 electron-vue 开发的用于快速上传图片并获取图片 URL 链接的开源工具，GitHub主页：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>，作者博客：<a target="_blank" rel="noopener" href="https://molunerfinn.com/">MARKSZのBlog</a>。</p>
 <p>PicGo 只要配置好图床类型，就可以直接拖拽图片进行上传并自动返回图片链接，配合 Typora 还可以实现在文章中插入图片时自动上传并替换为链接内容，完全不用感知上传图片的过程。</p>
 <p>PicGo 本体支持七牛云、腾讯云、又拍云、阿里云、SM、Imgur、GitHub这些图床，而且还支持自己扩展第三方图床的支持插件，比如就有人开发了 Gitee 的插件。更多介绍见<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/#%E5%90%AC%E8%AF%B4%E4%BD%A0%E4%B9%9F%E6%83%B3%E7%94%A8picgo">官方文档</a>，下载地址：<a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo/">PicGo</a></p>
-<h3 id="2、Gitee-图床"><a href="#2、Gitee-图床" class="headerlink" title="2、Gitee 图床"></a>2、Gitee 图床</h3><h4 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1. 新建仓库"></a>1. 新建仓库</h4><p>第一步要先在 Gitee 新建一个仓库用于存储图片。打开自己 <a target="_blank" rel="noopener" href="https://gitee.com/">Gitee 主页</a>，点击右上角的+号新建仓库。</p>
-<h4 id="2-获取私人令牌"><a href="#2-获取私人令牌" class="headerlink" title="2. 获取私人令牌"></a>2. 获取私人令牌</h4><p>同样的，<code>私人令牌</code>和 GitHub 上的 token 一样，主要用于让 PicGo 有权限往我们的仓库 push 代码(图片)。</p>
-<p>点击自己的头像，选择<code>设置</code>。</p>
-<p>点击<code>私人令牌</code>，选择生成新令牌。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319153825247.png"></p>
+<h3 id="PicGo-配置"><a href="#PicGo-配置" class="headerlink" title="PicGo 配置"></a>PicGo 配置</h3><p>打开 PicGo ,选择<code>图床设置</code>，选择<code>GitHub图床</code>，填写参数：</p>
+<ul>
+<li><code>设定仓库名</code>，填写格式为<code>用户名/仓库名</code></li>
+<li><code>设定分支名</code>，填写默认分支<code>master</code>或者<code>main</code></li>
+<li><code>设定Token</code>，填写上一步获取的 token 值</li>
+<li><code>指定存储路径</code>，选填，可以自定义名称，比如用年月来分类，不填图片会上传在仓库根目录。</li>
+<li><code>设定自定义域名</code>，用于修改返回的 url 前缀，不填则返回原始 url。后面配置CDN加速需要更改此项。</li>
+</ul>
+<p>选择设为默认图床，点击确定保存配置。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319154120522.png"></p>
+<p>配置完成后，点击<code>上传区</code>，随便选择电脑上一张图片拖动到上传区，上传成功后会弹窗提示，将该 url 复制到浏览器打开就可以看到图片。可以在<code>PicGo设置</code>，打开<code>上传后自动复制URL</code>，这样上传成功后图片 url 会自动复制在剪贴板，可以直接粘贴到记事本。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319154210153.png"></p>
+<h2 id="2-Typora"><a href="#2-Typora" class="headerlink" title="2.Typora"></a>2.Typora</h2><p>网上有很多介绍的 Typora 的文章，推荐两篇写的很详细的文章。</p>
+<p>深度介绍(必看)：<a target="_blank" rel="noopener" href="https://sspai.com/post/54912">少数派:Typora 完全使用详解</a></p>
+<p>快捷键介绍：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hider/p/11614688.html">Typora入门</a></p>
+<h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><p>下面介绍几个我觉得很有用很方便的设置。</p>
+<p>打开<code>文件</code> –&gt; <code>偏好设置</code>。</p>
+<h4 id="1-打开自动保存"><a href="#1-打开自动保存" class="headerlink" title="1. 打开自动保存"></a>1. 打开自动保存</h4><p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160438837.png"></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160508255.png"></p>
+<h4 id="2-打开成对符号"><a href="#2-打开成对符号" class="headerlink" title="2. 打开成对符号"></a>2. 打开成对符号</h4><p>选择<code>编辑器</code>，勾选 <code>匹配括号和引号</code>和<code>匹配 Markdown 字符</code>。这样当我们输入括号(<code>[]()&#123;&#125;</code>)等成对的符号时，只需要输入左边一半，软件会自动补充右边一半。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160619876.png"></p>
+<h4 id="3-打开首行缩进（可选）"><a href="#3-打开首行缩进（可选）" class="headerlink" title="3. 打开首行缩进（可选）"></a>3. 打开首行缩进（可选）</h4><p>选择<code>Markdown</code>，勾选 <code>首行缩进</code>。这个看自己需要，只是在 Typora 本地显示中首行缩进，因为 Markdown 语法本身并没有支持首行缩进的符号，所以文件拿到别的地方不会有首行缩进的效果。如果非要首行缩进，可以在段落开头加个<code>  </code>可以在其他地方打开时也能首行缩进。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160749716.png"></p>
+<h4 id="4-打开自动保存图片"><a href="#4-打开自动保存图片" class="headerlink" title="4. 打开自动保存图片"></a>4. 打开自动保存图片</h4><p>选择<code>图像</code>，选择<code>插入图片时...</code>自动执行的动作：</p>
+<ul>
+<li>默认是<code>无特殊操作</code>，当你写文章时，粘贴或者拖动进来的图片会自动保存在<code>C:\Users\&lt;电脑用户名&gt;\AppData\Roaming\Typora\typora-user-images</code>目录下。</li>
+<li><code>复制图片到当前文件夹</code>，选择该选项时，粘贴或者拖动进来的图片会自动保存在当前编辑的文件同目录下。</li>
+<li><code>复制图片到 ./$&#123;filename&#125;.assets 文件夹</code>，选择该选项时，粘贴或者拖动图片进来，会自动在当前编辑的文件目录下新建文件夹<code>$&#123;filename&#125;.assets</code>并将图片复制到该文件夹下，其中``${filename}<code>是当前编辑的文件名，不包含</code>.md`。</li>
+<li><code>上传图片</code>，选择该选项时，粘贴或者拖动图片进来，会根据下面的<code>上传服务设置</code>将图片自动上传到图床，平时最好用这个设置，详细内容在下一篇文章中介绍。</li>
+<li><code>复制到指定路经</code>，选择该选项时，可以自己填入一个文件夹，粘贴或者拖动图片进来，会自动创建文件夹并将图片复制进去。</li>
+</ul>
+<p>建议选择<code>上传图片</code>，按照下篇文章的方法将图片保存在图床。当然，如果写的的文章只保存在本地或者需要断网时浏览，那么可以选择其他几个选项。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160905411.png"></p>
+<h2 id="3-Gitee-图床"><a href="#3-Gitee-图床" class="headerlink" title="3.Gitee 图床"></a>3.Gitee 图床</h2><h3 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1. 新建仓库"></a>1. 新建仓库</h3><p>第一步要先在 Gitee 新建一个仓库用于存储图片。</p>
+<p>依次填写<code>仓库名称</code>，<code>路径</code>，<code>仓库介绍</code>，注意要勾选<code>公开</code>和<code>使用Readme文件初始化这个仓库</code>，最后点击创建。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319154703777.png"></p>
+<h3 id="2-获取私人令牌"><a href="#2-获取私人令牌" class="headerlink" title="2. 获取私人令牌"></a>2. 获取私人令牌</h3><p><strong>私人令牌</strong>主要用于让 PicGo 有权限往我们的仓库 push 代码(图片)。</p>
+<p>点击自己的头像，选择<strong>设置</strong>。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155107411.png"></p>
+<p>点击<strong>私人令牌</strong>，选择生成新令牌。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155200623.png"></p>
 <p>同样的，我们只勾选更新代码的权限。填写<code>私人令牌描述</code>，点击提交。因为是敏感操作，此时需要确认密码。</p>
-<p><strong>私人令牌：2f399bab6ccfc7fabd4a5631c7eea04d</strong></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155300283.png"></p>
 <p>复制字符串下一步使用。注意，为了安全起见此字符串只会出现一次，点击其他页面后就无法再查看了，需要重新创建，所以最好先保存到本地编辑器中。</p>
-<h4 id="3-PicGo-配置"><a href="#3-PicGo-配置" class="headerlink" title="3. PicGo 配置"></a>3. PicGo 配置</h4>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155350155.png"></p>
+<h3 id="3-PicGo-配置"><a href="#3-PicGo-配置" class="headerlink" title="3. PicGo 配置"></a>3. PicGo 配置</h3><p>PicGo 本体没有支持 Gitee ，所以需要下载一个插件，有人己经写好了。</p>
+<p>打开 PicGo ，点击 <code>插件设置</code>，搜索框输入<code>gitee</code>，目前有两个插件应该都能用，任选一个安装，这里我选择的后面那个。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155439361.png"></p>
+<p>安装好插件后，这时再选择<code>图床设置</code>，选择<code>gitee</code>，填写参数：</p>
+<ul>
+<li><code>repo</code>，填写格式为<code>用户名/仓库名</code></li>
+<li><code>branch</code>，填写默认分支<code>master</code></li>
+<li><code>token</code>，填写上一步获取的私人令牌的值</li>
+<li><code>path</code>，选填，可以自定义名称，不填图片会上传在仓库根目录。</li>
+<li><code>customPath</code>，这个会在上一个参数的基础上再创建一层子文件夹用于按年、年月或年季来分类保存。</li>
+<li><code>customUrl</code>，用于修改返回的 url 前缀，不填则返回原始 url。后面解决<code>文件大于1M，登录后可见</code>的问题需要更改此项。</li>
+</ul>
+<p>选择设为默认图床，点击确定保存配置。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155603781.png"></p>
+<h3 id="4-Typora-配置"><a href="#4-Typora-配置" class="headerlink" title="4. Typora 配置"></a>4. Typora 配置</h3><p>打开<code>文件</code>，<code>偏好设置</code>，<code>图像</code>，选择插入图片时<code>上传图片</code>，勾选图中三个选项，上传服务设定选择<code>PicGo (app)</code>，PicGo 路径通过后面的文件夹选择自己电脑上 PicGo 的安装路径。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319154451161.png"></p>
+<p>此时，使用 Typora 编辑文件，拖入或者粘贴图片时，会自动调用 PicGo 将图片上传到我们的 GitHub 图床，并把返回的图片链接粘贴到文章中，快去试试吧。</p>
+<h3 id="5-解决”文件大于1M，登录后可见”问题"><a href="#5-解决”文件大于1M，登录后可见”问题" class="headerlink" title="5. 解决”文件大于1M，登录后可见”问题"></a>5. 解决”文件大于1M，登录后可见”问题</h3><p>从上一步可以看到 Gitee 存储的图片地址是 <code>https://gitee.com/yushuaigee/myblog/raw</code> 开头的网址，这个域名是国内站点，速度很快，无需配置CDN加速，图床配置好之后，图片上传成功，在浏览器也能打开，看似没毛病，其实暗藏玄机。</p>
+<p>如果你上传的图片大于 1M ，不管是在下一步的 Typora 中还是在浏览器网页中，是无法加载出图片的，比如这张图片<code>https://gitee.com/yushuaigee/myblog/raw/master/img/myblog.gif</code>，输入到浏览器会显示<code>文件大于1M，登录后可见</code>。如果能打开是因为你前面已经登录了 Gitee 了，浏览器新建一个无痕窗口就打不开了。</p>
+<p>可是别人在浏览我们博客时不可能要先登录个 Gitee 吧，所以要想办法解决一下。前面我们将博客仓库打开 Gitee Pages 功能，其他人可以访问我们博客仓库里的博客了，图床仓库也一样，打开它的 Gitee Pages 功能，无需登陆就可以访问里面的图片了。</p>
+<p>进入图床仓库主页，点击<code>服务</code>，<code>Gitee Pages</code>。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155816376.png" alt="image-20210319155816376"></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155836510.png"></p>
+<p>点击<code>启动</code>部署。</p>
+<p>这样我们就可以通过Gitee Pages 地址来访问图床仓库里的图片了</p>
+<p><strong>这种方法也存在一个问题</strong>，就是因为 Gitee Pages 不支持自动更新 (pro版支持，需要收费)，每次上传完图片后，需要打开浏览器手动点一下更新。你可以写完文章，把图片一把上传，再点一次更新。</p>
+
                 
             </div>
             <hr/>
@@ -718,17 +783,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/19/httpsguan-zehui-gitee-iomy-blogimg20210319153050-png/">
+                <a href="/2021/03/19/bo-ke-da-jian-san-typora-picgo-github-gitee-tu-chuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="博客搭建(三)：Typora + PicGo + Gitee图床">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">博客搭建(三)：Typora + PicGo + Gitee图床</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,9 +804,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -748,6 +814,15 @@
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0-%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">笔记 教程</span>
+                    </a>
+                    
                 </div>
                 
             </div>
