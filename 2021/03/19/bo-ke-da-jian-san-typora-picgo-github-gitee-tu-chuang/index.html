@@ -377,6 +377,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category">
+                                应用教程
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -429,8 +438,8 @@
 <p>快捷键介绍：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hider/p/11614688.html">Typora入门</a></p>
 <h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><p>下面介绍几个我觉得很有用很方便的设置。</p>
 <p>打开<code>文件</code> –&gt; <code>偏好设置</code>。</p>
-<h4 id="1-打开自动保存"><a href="#1-打开自动保存" class="headerlink" title="1. 打开自动保存"></a>1. 打开自动保存</h4><p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160438837.png"></p>
-<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160508255.png"></p>
+<h4 id="1-打开自动保存"><a href="#1-打开自动保存" class="headerlink" title="1. 打开自动保存"></a>1. 打开自动保存</h4><p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160508255.png"></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160438837.png"></p>
 <h4 id="2-打开成对符号"><a href="#2-打开成对符号" class="headerlink" title="2. 打开成对符号"></a>2. 打开成对符号</h4><p>选择<code>编辑器</code>，勾选 <code>匹配括号和引号</code>和<code>匹配 Markdown 字符</code>。这样当我们输入括号(<code>[]()&#123;&#125;</code>)等成对的符号时，只需要输入左边一半，软件会自动补充右边一半。</p>
 <p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160619876.png"></p>
 <h4 id="3-打开首行缩进（可选）"><a href="#3-打开首行缩进（可选）" class="headerlink" title="3. 打开首行缩进（可选）"></a>3. 打开首行缩进（可选）</h4><p>选择<code>Markdown</code>，勾选 <code>首行缩进</code>。这个看自己需要，只是在 Typora 本地显示中首行缩进，因为 Markdown 语法本身并没有支持首行缩进的符号，所以文件拿到别的地方不会有首行缩进的效果。如果非要首行缩进，可以在段落开头加个<code>  </code>可以在其他地方打开时也能首行缩进。</p>
@@ -447,19 +456,19 @@
 <p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319160905411.png"></p>
 <h2 id="3-Gitee-图床"><a href="#3-Gitee-图床" class="headerlink" title="3.Gitee 图床"></a>3.Gitee 图床</h2><h3 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1. 新建仓库"></a>1. 新建仓库</h3><p>第一步要先在 Gitee 新建一个仓库用于存储图片。</p>
 <p>依次填写<code>仓库名称</code>，<code>路径</code>，<code>仓库介绍</code>，注意要勾选<code>公开</code>和<code>使用Readme文件初始化这个仓库</code>，最后点击创建。</p>
-<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319154703777.png"></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155107411.png"></p>
 <h3 id="2-获取私人令牌"><a href="#2-获取私人令牌" class="headerlink" title="2. 获取私人令牌"></a>2. 获取私人令牌</h3><p><strong>私人令牌</strong>主要用于让 PicGo 有权限往我们的仓库 push 代码(图片)。</p>
 <p>点击自己的头像，选择<strong>设置</strong>。</p>
-<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155107411.png"></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319154703777.png"></p>
 <p>点击<strong>私人令牌</strong>，选择生成新令牌。</p>
 <p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155200623.png"></p>
 <p>同样的，我们只勾选更新代码的权限。填写<code>私人令牌描述</code>，点击提交。因为是敏感操作，此时需要确认密码。</p>
-<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155300283.png"></p>
-<p>复制字符串下一步使用。注意，为了安全起见此字符串只会出现一次，点击其他页面后就无法再查看了，需要重新创建，所以最好先保存到本地编辑器中。</p>
 <p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155350155.png"></p>
+<p>复制字符串下一步使用。注意，为了安全起见此字符串只会出现一次，点击其他页面后就无法再查看了，需要重新创建，所以最好先保存到本地编辑器中。</p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155439361.png"></p>
 <h3 id="3-PicGo-配置"><a href="#3-PicGo-配置" class="headerlink" title="3. PicGo 配置"></a>3. PicGo 配置</h3><p>PicGo 本体没有支持 Gitee ，所以需要下载一个插件，有人己经写好了。</p>
 <p>打开 PicGo ，点击 <code>插件设置</code>，搜索框输入<code>gitee</code>，目前有两个插件应该都能用，任选一个安装，这里我选择的后面那个。</p>
-<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155439361.png"></p>
+<p><img src="https://guan-zehui.gitee.io/my-blog/img/image-20210319155300283.png"></p>
 <p>安装好插件后，这时再选择<code>图床设置</code>，选择<code>gitee</code>，填写参数：</p>
 <ul>
 <li><code>repo</code>，填写格式为<code>用户名/仓库名</code></li>
@@ -724,13 +733,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/21/2021-03-21-test1/">
+                <a href="/2021/04/01/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -741,7 +750,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
                         </span>
                         <span class="publish-author">
                             
