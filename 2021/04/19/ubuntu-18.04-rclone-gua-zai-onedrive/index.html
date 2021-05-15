@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客, Insist">
+    <meta name="keywords" content="Ubuntu 18.04 rclone 挂载 Onedrive, Insist">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇博客 | Insist</title>
+    <title>Ubuntu 18.04 rclone 挂载 Onedrive | Insist</title>
     <link rel="icon" type="image/png" href="/favicon1.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客</h1>
+                    <h1 class="description center-align post-title">Ubuntu 18.04 rclone 挂载 Onedrive</h1>
                 </div>
             </div>
         </div>
@@ -380,8 +380,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Blog/" class="post-category">
-                                Blog
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -393,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-04-19
                 </div>
                 
 
@@ -417,20 +417,269 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="博客的创建"><a href="#博客的创建" class="headerlink" title="博客的创建"></a>博客的创建</h2><p> 2020 年 3 月 17 日，大学四年也来到了最后一个学期，毕业设计开始的时候，在做准备工作的过程中，发现这个世界有意思的东西好多。每个都想学好，无处下手，上周想找个东西能整理记录学习的历程，最终选择了写博客。</p>
-<h2 id="本博客包含的内容"><a href="#本博客包含的内容" class="headerlink" title="本博客包含的内容"></a>本博客包含的内容</h2><p>先挖坑，再慢慢完善。</p>
-<pre class="line-numbers language-none"><code class="language-none"> 一、工具类
-	1. Office
-	2. 博客
-二、计算机语言
-	1. C 语言
-	2. Python
-	3. R 语言
-三、Linux 系统
-四、其他
-	1. 公众号运营
-	2. 电脑组装 < span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="一、获取授权密钥"><a href="#一、获取授权密钥" class="headerlink" title="一、获取授权密钥"></a>一、获取授权密钥</h2><p>在本地安装 rclone 客户端</p>
+<p>在 rclone 官网 <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">https://rclone.org/downloads/</a> 下载适用于 Windows 的最新版客户端，解压到磁盘当中，将文件夹重命名为 rc（方便以下操作。。）。按住键盘上 win+R 输入 powershell 打开命令行，执行以下命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> 目录 <span class="token comment"># 如果解压在其他盘只需相应替换盘符即可 </span>
+.<span class="token punctuation">\</span>rclone authorize <span class="token string">"onedrive"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>此时会弹出一个验证页面，在此登陆你的 onedrive 账户完成授权即可在 powershell 中获取密钥，如下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:<span class="token punctuation">\</span>rc<span class="token operator">></span> .<span class="token punctuation">\</span>rclone authorize <span class="token string">"onedrive"</span>
+If your browser doesn't <span class="token function">open</span> automatically go to the following link: http://127.0.0.1:53682/auth?state<span class="token operator">=</span>xxxx
+Log <span class="token keyword">in</span> and authorize rclone <span class="token keyword">for</span> access
+Waiting <span class="token keyword">for</span> code<span class="token punctuation">..</span>.
+Got code
+Paste the following into your remote machine ---<span class="token operator">></span>
+<span class="token punctuation">&#123;</span><span class="token string">"access_token"</span><span class="token builtin class-name">:</span><span class="token string">"auth"</span>,<span class="token string">"expiry"</span><span class="token builtin class-name">:</span><span class="token string">"2020-01-28T21:59:50.7394539+08:00"</span><span class="token punctuation">&#125;</span>  <span class="token comment"># 完整复制此步给出的密钥包括 &#123;---&#125; 之间的所有内容。</span>
+<span class="token operator">&lt;</span>---End <span class="token function">paste</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="二、服务器配置"><a href="#二、服务器配置" class="headerlink" title="二、服务器配置"></a>二、服务器配置</h2><h3 id="1-安装-rclone"><a href="#1-安装-rclone" class="headerlink" title="1. 安装 rclone"></a>1. 安装 rclone</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> https://rclone.org/install.sh <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span>   <span class="token comment">#rclone on Linux/macOS/BSD systems</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-配置-rclone"><a href="#2-配置-rclone" class="headerlink" title="2. 配置 rclone"></a>2. 配置 rclone</h3><p>初始化 rclone 并执行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rclone config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>按照如下提示进行，此步骤的一些步骤会因为 rclone 版本更新出现不同，但总体安装过程和选项相似，请依据现在安装的版本进行。</p>
+<p>在获取密钥匙务必确保本地客户端和服务器上的 rclone 版本一致，否则可能出现错误。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">e<span class="token punctuation">)</span> Edit existing remote
+n<span class="token punctuation">)</span> New remote
+d<span class="token punctuation">)</span> Delete remote
+r<span class="token punctuation">)</span> Rename remote
+c<span class="token punctuation">)</span> Copy remote
+s<span class="token punctuation">)</span> Set configuration password
+q<span class="token punctuation">)</span> Quit config
+e/n/d/r/c/s/q<span class="token operator">></span> n <span class="token comment"># 创建新的 remote</span>
+name<span class="token operator">></span> <span class="token builtin class-name">test</span> <span class="token comment"># 输入名称 </span>
+Type of storage to configure.
+Enter a string value. Press Enter <span class="token keyword">for</span> the default <span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>.
+Choose a number from below, or <span class="token builtin class-name">type</span> <span class="token keyword">in</span> your own value
+ <span class="token number">1</span> / 1Fichier
+   <span class="token punctuation">\</span> <span class="token string">"fichier"</span>
+ <span class="token number">2</span> / Alias <span class="token keyword">for</span> an existing remote
+   <span class="token punctuation">\</span> <span class="token string">"alias"</span>
+ <span class="token number">3</span> / Amazon Drive
+   <span class="token punctuation">\</span> <span class="token string">"amazon cloud drive"</span>
+ <span class="token number">4</span> / Amazon S3 Compliant Storage Providers including AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, and Tencent COS
+   <span class="token punctuation">\</span> <span class="token string">"s3"</span>
+ <span class="token number">5</span> / Backblaze B2
+   <span class="token punctuation">\</span> <span class="token string">"b2"</span>
+ <span class="token number">6</span> / Box
+   <span class="token punctuation">\</span> <span class="token string">"box"</span>
+ <span class="token number">7</span> / Cache a remote
+   <span class="token punctuation">\</span> <span class="token string">"cache"</span>
+ <span class="token number">8</span> / Citrix Sharefile
+   <span class="token punctuation">\</span> <span class="token string">"sharefile"</span>
+ <span class="token number">9</span> / Compress a remote
+   <span class="token punctuation">\</span> <span class="token string">"compress"</span>
+<span class="token number">10</span> / Dropbox
+   <span class="token punctuation">\</span> <span class="token string">"dropbox"</span>
+<span class="token number">11</span> / Encrypt/Decrypt a remote
+   <span class="token punctuation">\</span> <span class="token string">"crypt"</span>
+<span class="token number">12</span> / Enterprise File Fabric
+   <span class="token punctuation">\</span> <span class="token string">"filefabric"</span>
+<span class="token number">13</span> / FTP Connection
+   <span class="token punctuation">\</span> <span class="token string">"ftp"</span>
+<span class="token number">14</span> / Google Cloud Storage <span class="token punctuation">(</span>this is not Google Drive<span class="token punctuation">)</span>
+   <span class="token punctuation">\</span> <span class="token string">"google cloud storage"</span>
+<span class="token number">15</span> / Google Drive
+   <span class="token punctuation">\</span> <span class="token string">"drive"</span>
+<span class="token number">16</span> / Google Photos
+   <span class="token punctuation">\</span> <span class="token string">"google photos"</span>
+<span class="token number">17</span> / Hadoop distributed <span class="token function">file</span> system
+   <span class="token punctuation">\</span> <span class="token string">"hdfs"</span>
+<span class="token number">18</span> / Hubic
+   <span class="token punctuation">\</span> <span class="token string">"hubic"</span>
+<span class="token number">19</span> / In memory object storage system.
+   <span class="token punctuation">\</span> <span class="token string">"memory"</span>
+<span class="token number">20</span> / Jottacloud
+   <span class="token punctuation">\</span> <span class="token string">"jottacloud"</span>
+<span class="token number">21</span> / Koofr
+   <span class="token punctuation">\</span> <span class="token string">"koofr"</span>
+<span class="token number">22</span> / Local Disk
+   <span class="token punctuation">\</span> <span class="token string">"local"</span>
+<span class="token number">23</span> / Mail.ru Cloud
+   <span class="token punctuation">\</span> <span class="token string">"mailru"</span>
+<span class="token number">24</span> / Mega
+   <span class="token punctuation">\</span> <span class="token string">"mega"</span>
+<span class="token number">25</span> / Microsoft Azure Blob Storage
+   <span class="token punctuation">\</span> <span class="token string">"azureblob"</span>
+<span class="token number">26</span> / Microsoft OneDrive
+   <span class="token punctuation">\</span> <span class="token string">"onedrive"</span>
+<span class="token number">27</span> / OpenDrive
+   <span class="token punctuation">\</span> <span class="token string">"opendrive"</span>
+<span class="token number">28</span> / OpenStack Swift <span class="token punctuation">(</span>Rackspace Cloud Files, Memset Memstore, OVH<span class="token punctuation">)</span>
+   <span class="token punctuation">\</span> <span class="token string">"swift"</span>
+<span class="token number">29</span> / Pcloud
+   <span class="token punctuation">\</span> <span class="token string">"pcloud"</span>
+<span class="token number">30</span> / Put.io
+   <span class="token punctuation">\</span> <span class="token string">"putio"</span>
+<span class="token number">31</span> / QingCloud Object Storage
+   <span class="token punctuation">\</span> <span class="token string">"qingstor"</span>
+<span class="token number">32</span> / SSH/SFTP Connection
+   <span class="token punctuation">\</span> <span class="token string">"sftp"</span>
+<span class="token number">33</span> / Sugarsync
+   <span class="token punctuation">\</span> <span class="token string">"sugarsync"</span>
+<span class="token number">34</span> / Tardigrade Decentralized Cloud Storage
+   <span class="token punctuation">\</span> <span class="token string">"tardigrade"</span>
+<span class="token number">35</span> / Transparently chunk/split large files
+   <span class="token punctuation">\</span> <span class="token string">"chunker"</span>
+<span class="token number">36</span> / Union merges the contents of several upstream fs
+   <span class="token punctuation">\</span> <span class="token string">"union"</span>
+<span class="token number">37</span> / Webdav
+   <span class="token punctuation">\</span> <span class="token string">"webdav"</span>
+<span class="token number">38</span> / Yandex Disk
+   <span class="token punctuation">\</span> <span class="token string">"yandex"</span>
+<span class="token number">39</span> / Zoho
+   <span class="token punctuation">\</span> <span class="token string">"zoho"</span>
+<span class="token number">40</span> /http Connection
+   <span class="token punctuation">\</span> <span class="token string">"http"</span>
+<span class="token number">41</span> /premiumize.me
+   <span class="token punctuation">\</span> <span class="token string">"premiumizeme"</span>
+<span class="token number">42</span> /seafile
+   <span class="token punctuation">\</span> <span class="token string">"seafile"</span>
+Storage<span class="token operator">></span> <span class="token number">26</span> <span class="token comment"># 不同版本选择不同，此版本 Onedrive 为 26，可以自行选择 </span>
+** See <span class="token builtin class-name">help</span> <span class="token keyword">for</span> onedrive backend at: https://rclone.org/onedrive/ **
+
+OAuth Client Id
+Leave blank normally.
+Enter a string value. Press Enter <span class="token keyword">for</span> the default <span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>.
+client_id<span class="token operator">></span> 
+OAuth Client Secret
+Leave blank normally.
+Enter a string value. Press Enter <span class="token keyword">for</span> the default <span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>.
+client_secret<span class="token operator">></span> 
+Choose national cloud region <span class="token keyword">for</span> OneDrive.
+Enter a string value. Press Enter <span class="token keyword">for</span> the default <span class="token punctuation">(</span><span class="token string">"global"</span><span class="token punctuation">)</span>.
+Choose a number from below, or <span class="token builtin class-name">type</span> <span class="token keyword">in</span> your own value
+ <span class="token number">1</span> / Microsoft Cloud Global
+   <span class="token punctuation">\</span> <span class="token string">"global"</span>
+ <span class="token number">2</span> / Microsoft Cloud <span class="token keyword">for</span> US Government
+   <span class="token punctuation">\</span> <span class="token string">"us"</span>
+ <span class="token number">3</span> / Microsoft Cloud Germany
+   <span class="token punctuation">\</span> <span class="token string">"de"</span>
+ <span class="token number">4</span> / Azure and Office <span class="token number">365</span> operated by 21Vianet <span class="token keyword">in</span> China
+   <span class="token punctuation">\</span> <span class="token string">"cn"</span>
+region<span class="token operator">></span> <span class="token number">1</span> <span class="token comment"># 一般选择 1 或根据自己的类型选择 </span>
+Edit advanced config? <span class="token punctuation">(</span>y/n<span class="token punctuation">)</span>
+y<span class="token punctuation">)</span> Yes
+n<span class="token punctuation">)</span> No <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
+y/n<span class="token operator">></span> n
+Remote config
+Use auto config?
+ * Say Y <span class="token keyword">if</span> not sure
+ * Say N <span class="token keyword">if</span> you are working on a remote or headless machine
+y<span class="token punctuation">)</span> Yes <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
+n<span class="token punctuation">)</span> No
+y/n<span class="token operator">></span> n
+For this to work, you will need rclone available on a machine that has
+a web browser available.
+
+For <span class="token function">more</span> <span class="token builtin class-name">help</span> and alternate methods see: https://rclone.org/remote_setup/
+
+Execute the following on the machine with the web browser <span class="token punctuation">(</span>same rclone
+version recommended<span class="token punctuation">)</span>:
+
+	rclone authorize <span class="token string">"onedrive"</span>
+
+Then <span class="token function">paste</span> the result below:
+result<span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+Choose a number from below, or <span class="token builtin class-name">type</span> <span class="token keyword">in</span> an existing value
+ <span class="token number">1</span> / OneDrive Personal or Business
+   <span class="token punctuation">\</span> <span class="token string">"onedrive"</span>
+ <span class="token number">2</span> / Root Sharepoint site
+   <span class="token punctuation">\</span> <span class="token string">"sharepoint"</span>
+ <span class="token number">3</span> / Sharepoint site name or URL <span class="token punctuation">(</span>e.g. mysite or https://contoso.sharepoint.com/sites/mysite<span class="token punctuation">)</span>
+   <span class="token punctuation">\</span> <span class="token string">"url"</span>
+ <span class="token number">4</span> / Search <span class="token keyword">for</span> a Sharepoint site
+   <span class="token punctuation">\</span> <span class="token string">"search"</span>
+ <span class="token number">5</span> / Type <span class="token keyword">in</span> driveID <span class="token punctuation">(</span>advanced<span class="token punctuation">)</span>
+   <span class="token punctuation">\</span> <span class="token string">"driveid"</span>
+ <span class="token number">6</span> / Type <span class="token keyword">in</span> SiteID <span class="token punctuation">(</span>advanced<span class="token punctuation">)</span>
+   <span class="token punctuation">\</span> <span class="token string">"siteid"</span>
+ <span class="token number">7</span> / Sharepoint server-relative path <span class="token punctuation">(</span>advanced, e.g./teams/hr<span class="token punctuation">)</span>
+   <span class="token punctuation">\</span> <span class="token string">"path"</span>
+Your choice<span class="token operator">></span> <span class="token number">1</span> <span class="token comment"># 输入 1 (个人版或商业版 Onedrive) 或根据自己的类型选择 </span>
+Found <span class="token number">1</span> drives, please <span class="token keyword">select</span> the one you want to use:
+<span class="token number">0</span>: OneDrive <span class="token punctuation">(</span>business<span class="token punctuation">)</span> <span class="token assign-left variable">id</span><span class="token operator">=</span>
+Chose drive to use:<span class="token operator">></span> <span class="token number">0</span> <span class="token comment"># 选择想要链接的磁盘 </span>
+Found drive <span class="token string">'root'</span> of <span class="token builtin class-name">type</span> <span class="token string">'business'</span>, URL: https://xzgfwacnz0-my.sharepoint.com/personal/washington_1ove_club/Documents
+Is that okay?
+y<span class="token punctuation">)</span> Yes <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
+n<span class="token punctuation">)</span> No
+y/n<span class="token operator">></span> y
+--------------------
+<span class="token punctuation">[</span>test<span class="token punctuation">]</span>
+<span class="token builtin class-name">type</span> <span class="token operator">=</span> onedrive
+region <span class="token operator">=</span> global
+token <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+drive_id <span class="token operator">=</span> 
+drive_type <span class="token operator">=</span> business
+--------------------
+y<span class="token punctuation">)</span> Yes this is OK <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
+e<span class="token punctuation">)</span> Edit this remote
+d<span class="token punctuation">)</span> Delete this remote
+y/e/d<span class="token operator">></span> y <span class="token comment"># 确认配置 </span>
+Current remotes:
+
+Name                 Type
+<span class="token operator">==</span><span class="token operator">==</span>                 <span class="token operator">==</span><span class="token operator">==</span>
+Onedrive             onedrive
+<span class="token builtin class-name">test</span>                 onedrive
+
+e<span class="token punctuation">)</span> Edit existing remote
+n<span class="token punctuation">)</span> New remote
+d<span class="token punctuation">)</span> Delete remote
+r<span class="token punctuation">)</span> Rename remote
+c<span class="token punctuation">)</span> Copy remote
+s<span class="token punctuation">)</span> Set configuration password
+q<span class="token punctuation">)</span> Quit config
+e/n/d/r/c/s/q<span class="token operator">></span> q
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-以磁盘方式挂载"><a href="#3-以磁盘方式挂载" class="headerlink" title="3. 以磁盘方式挂载"></a>3. 以磁盘方式挂载</h3><ol>
+<li>新建文件夹作为要挂载的本地目录。</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /home/Onedrive     <span class="token comment"># 这里的目录路径自行决定 </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>挂载远程硬盘</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rclone <span class="token function">mount</span> DriveName:Folder LocalFolder --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 <span class="token operator">&amp;&amp;</span>
+<span class="token comment">#DriveName 为配置时填的 name </span>
+<span class="token comment">#Folder 为 onedrive 里的文件夹 </span>
+<span class="token comment">#LocalFolder 为刚刚创建的本地文件夹 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>挂载完成后可使用 <code>df -h</code> 命令查看磁盘情况</p>
+<h3 id="4-卸载硬盘"><a href="#4-卸载硬盘" class="headerlink" title="4. 卸载硬盘"></a>4. 卸载硬盘</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fusermount -qzu LocalFolder      <span class="token comment"># 卸载硬盘 </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="5-设置开机自启"><a href="#5-设置开机自启" class="headerlink" title="5. 设置开机自启"></a>5. 设置开机自启</h3><h4 id="1-添加到-systemd-中"><a href="#1-添加到-systemd-中" class="headerlink" title="1. 添加到 systemd 中"></a>1. 添加到 systemd 中</h4><p>先新建 <code>systemd</code> 配置文件，适用 <code>CentOS 7</code>、<code>Debian 8+</code>、<code>Ubuntu 16+</code>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将后面修改成你上面手动运行命令中，除了 rclone 的全部参数 </span>
+<span class="token assign-left variable">command</span><span class="token operator">=</span><span class="token string">"mount DriveName:Folder LocalFolder --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000"</span>
+<span class="token comment"># 以下是一整条命令，一起复制到 SSH 客户端运行 </span>
+<span class="token function">cat</span> <span class="token operator">></span> /etc/systemd/system/rclone.service <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+[Unit]
+Description=Rclone
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">command</span> -v rclone<span class="token variable">)</span></span> <span class="token variable">$&#123;command&#125;</span>
+Restart=on-abort
+User=root
+
+[Install]
+WantedBy=default.target
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-启动-rclone"><a href="#2-启动-rclone" class="headerlink" title="2. 启动 rclone"></a>2. 启动 rclone</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start rclone <span class="token comment"># 启动 rclone</span>
+systemctl <span class="token builtin class-name">enable</span> rclone <span class="token comment"># 设置 rclone 开机自启 </span>
+
+其他命令
+systemctl restart rclone <span class="token comment"># 重启 rclone</span>
+systemctl stop rclone <span class="token comment"># 停止 rclone</span>
+systemctl status rclone <span class="token comment"># 查看 rclone</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考链接</p>
+<p><a target="_blank" rel="noopener" href="https://ifibe.com/posts/b4099b8/">https://ifibe.com/posts/b4099b8/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.moerats.com/archives/481/">https://www.moerats.com/archives/481/</a></p>
 
                 
             </div>
@@ -457,7 +706,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/">https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/</a>
+                    <a href="https://qingliang2021.github.io/2021/04/19/ubuntu-18.04-rclone-gua-zai-onedrive/">https://qingliang2021.github.io/2021/04/19/ubuntu-18.04-rclone-gua-zai-onedrive/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,13 +921,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/17/markdown-bi-ji/">
+                <a href="/2021/04/21/ubuntu-18.04-aria2-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Markdown 笔记">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Ubuntu 18.04 aria2 安装">
                         
-                        <span class="card-title">Markdown 笔记</span>
+                        <span class="card-title">Ubuntu 18.04 aria2 安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,14 +938,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -721,13 +970,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/16/hello-world/">
+                <a href="/2021/04/18/ubuntu-18.04-an-zhuang-qbittorrent/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Ubuntu 18.04 安装 qBittorrent">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Ubuntu 18.04 安装 qBittorrent</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,15 +987,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Insist
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
                 </div>
                 
             </div>

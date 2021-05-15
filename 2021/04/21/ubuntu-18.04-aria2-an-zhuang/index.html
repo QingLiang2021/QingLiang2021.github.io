@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Insist">
+    <meta name="keywords" content="Ubuntu 18.04 aria2 安装, Insist">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Insist</title>
+    <title>Ubuntu 18.04 aria2 安装 | Insist</title>
     <link rel="icon" type="image/png" href="/favicon1.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Ubuntu 18.04 aria2 安装</h1>
                 </div>
             </div>
         </div>
@@ -366,12 +366,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                <span class="chip bg-color">教程</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -380,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-01
+                    2021-04-21
                 </div>
                 
 
@@ -404,19 +417,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a target="_blank" rel="noopener" href="https://github.com/aria2/aria2">Aria2 官网</a><br><a target="_blank" rel="noopener" href="https://aria2.github.io/manual/en/html/aria2c.html">Aria2 手册</a><br><a target="_blank" rel="noopener" href="http://aria2c.com/usage.html">Aria2.conf 参考</a></p>
+<p>[Linux screen 命令](<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-screen.html">Linux screen 命令 | 菜鸟教程 (runoob.com)</a>)</p>
+<h2 id="宝塔安装"><a href="#宝塔安装" class="headerlink" title="宝塔安装"></a>宝塔安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">bash</span> install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="aria2-安装"><a href="#aria2-安装" class="headerlink" title="aria2 安装"></a>aria2 安装</h2><h3 id="1、Aria2-配置文件"><a href="#1、Aria2-配置文件" class="headerlink" title="1、Aria2 配置文件"></a>1、Aria2 配置文件</h3><p>参考 Aria2 官方配置文件修改，并上传至服务器。</p>
+<h3 id="2、在-ssh-里输入命令安装-aria2"><a href="#2、在-ssh-里输入命令安装-aria2" class="headerlink" title="2、在 ssh 里输入命令安装 aria2:"></a>2、在 ssh 里输入命令安装 aria2:</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> aria2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>之后，解压刚刚上传到服务器的配置文件，修改 aria2.conf 内的</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rpc-secret
+<span class="token function">dir</span>
+on-download-complete<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>之后使用 aria2 命令运行配置文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> aria2 目录
+aria2c --conf-path<span class="token operator">=</span><span class="token string">"aria2.conf"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>但是这个时候，关闭 ssh，aria2 服务也会关闭。<br>解决方法：<br>使用 screen 后台运行 aria2:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">screen</span>
+<span class="token function">screen</span> -R aria2
+aria2c --conf-path<span class="token operator">=</span><span class="token string">"aria2.conf"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>之后按 ctril+c，再按 d。以后再次进入该 screen:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">screen</span> -R aria2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>** 放行端口：6800**</p>
+<h3 id="3、搭建网页前端-——AriaNg"><a href="#3、搭建网页前端-——AriaNg" class="headerlink" title="3、搭建网页前端 ——AriaNg"></a>3、搭建网页前端 ——AriaNg</h3><p>AriaNg 是一个能让强大的命令行下载工具 aria2 更容易使用的 Web 客户端，只需下载后用浏览器打开即可，无需安装、无需配置。</p>
+<p>项目地址（GitHub）： <a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases">https://github.com/mayswind/AriaNg/releases</a></p>
+<p>下面开始搭建，我是用宝塔面板搭建（有一种可视化搭建的感觉）：</p>
+<p>首先，添加网站：<br><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171347.jpg"><br>然后，到自己网站的文件夹里，离线下载 AriaNg 的压缩包：<br>![img](Image/2021-04-21-Ubuntu 18.04 aria2 安装.assets/addWeb1-20210410222315882.jpg)<br><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171353.jpg"><br>下载好后解压到你网站目录。<br>最后，进入你的域名，输入密钥。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171401.png"></p>
 
                 
             </div>
@@ -443,7 +473,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qingliang2021.github.io/2021/04/01/hello-world/">https://qingliang2021.github.io/2021/04/01/hello-world/</a>
+                    <a href="https://qingliang2021.github.io/2021/04/21/ubuntu-18.04-aria2-an-zhuang/">https://qingliang2021.github.io/2021/04/21/ubuntu-18.04-aria2-an-zhuang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -480,7 +510,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -650,18 +684,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/01/hello-world/">
+                <a href="/2021/04/21/typecho-da-jian-jiao-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Typecho 搭建教程">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Typecho 搭建教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -671,18 +704,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Insist
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Blog/" class="post-category">
+                                    Blog
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -693,13 +737,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/19/bo-ke-da-jian-san-typora-picgo-github-gitee-tu-chuang/">
+                <a href="/2021/04/19/ubuntu-18.04-rclone-gua-zai-onedrive/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="博客搭建(三)：Typora + PicGo + Gitee图床">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Ubuntu 18.04 rclone 挂载 Onedrive">
                         
-                        <span class="card-title">博客搭建(三)：Typora + PicGo + Gitee图床</span>
+                        <span class="card-title">Ubuntu 18.04 rclone 挂载 Onedrive</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -710,14 +754,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category">
-                                    应用教程
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -727,8 +771,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0-%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">笔记 教程</span>
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
                     </a>
                     
                 </div>

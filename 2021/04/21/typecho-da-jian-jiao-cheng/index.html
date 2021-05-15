@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客, Insist">
+    <meta name="keywords" content="Typecho 搭建教程, Insist">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇博客 | Insist</title>
+    <title>Typecho 搭建教程 | Insist</title>
     <link rel="icon" type="image/png" href="/favicon1.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客</h1>
+                    <h1 class="description center-align post-title">Typecho 搭建教程</h1>
                 </div>
             </div>
         </div>
@@ -393,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-04-21
                 </div>
                 
 
@@ -417,20 +417,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="博客的创建"><a href="#博客的创建" class="headerlink" title="博客的创建"></a>博客的创建</h2><p> 2020 年 3 月 17 日，大学四年也来到了最后一个学期，毕业设计开始的时候，在做准备工作的过程中，发现这个世界有意思的东西好多。每个都想学好，无处下手，上周想找个东西能整理记录学习的历程，最终选择了写博客。</p>
-<h2 id="本博客包含的内容"><a href="#本博客包含的内容" class="headerlink" title="本博客包含的内容"></a>本博客包含的内容</h2><p>先挖坑，再慢慢完善。</p>
-<pre class="line-numbers language-none"><code class="language-none"> 一、工具类
-	1. Office
-	2. 博客
-二、计算机语言
-	1. C 语言
-	2. Python
-	3. R 语言
-三、Linux 系统
-四、其他
-	1. 公众号运营
-	2. 电脑组装 < span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Typecho 是国内开发者开发的一款开源免费的动态博客程序，可以运行在基于 PHP 环境的各种平台上。</p>
+<ul>
+<li>官网：<a target="_blank" rel="noopener" href="http://typecho.org/">Typecho Official Site</a></li>
+<li>GitHub：<a target="_blank" rel="noopener" href="https://github.com/typecho/typecho">typecho/typecho: A PHP Blogging Platform. Simple and Powerful. (github.com)</a></li>
+</ul>
+<p>Typecho 的一大特点就是 “精简”，全部文件不足 500KB，但却也实现了完整的主题和插件支持。博客程序很轻量，资源占用也很低，原生支持 Markdown 语法，省心并且简洁。本文就介绍下如何在自己的 VPS 上搭建 Typecho 博客。</p>
+<h2 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h2><p>安装宝塔 Linux 面板，宝塔官网：<a target="_blank" rel="noopener" href="https://www.bt.cn/bbs/thread-19376-1-1.html">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
+<p><strong>Ubuntu/Deepin 安装命令：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">bash</span> install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p><strong>Centos 安装命令：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y <span class="token function">wget</span> <span class="token operator">&amp;&amp;</span> <span class="token function">wget</span> -O install.sh http://download.bt.cn/install/install_6.0.sh <span class="token operator">&amp;&amp;</span> <span class="token function">sh</span> install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>中间需要进行 “确认”，输入 Y 回车即可。安装完成会显示登录信息，包括面板地址、用户名和密码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171214.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171220.png"></p>
+<p>打开浏览器进入面板，会提示安装 LNMP。PHP 版本改为 7.1，点击 “一键安装”，等待网站环境安装完成。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171226.png"></p>
+<h2 id="创建网站"><a href="#创建网站" class="headerlink" title="创建网站"></a>创建网站</h2><ol>
+<li>点击右侧的 ** 网站 **。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171236.png"></p>
+<ol start="2">
+<li>添加站点</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171242.png"></p>
+<ol start="3">
+<li>按要求填写，并同时新建数据库。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171251.png"></p>
+<h2 id="安装-Typecho"><a href="#安装-Typecho" class="headerlink" title="安装 Typecho"></a>安装 Typecho</h2><p>进入 <a href="https://link.zhihu.com/?target=http://typecho.org/">Typecho</a> 官网，下载安装包。建议下载正式版。</p>
+<p>打开网站管理页面，进入网站目录，把该目录中的现有文件全部删除。然后把 Typecho 文件压缩包上传到网站目录中并解压，解压后出现 build 文件夹。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171304.gif"></p>
+<p>把 build 文件夹中的文件全部复制到 <a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a> 文件夹中，然后删除 build 文件夹 和 Typecho 压缩包。</p>
+<p>浏览器访问 <code>域名 /install.php</code> 或者 <code>IP:Port/install.php</code>，按提示完成 Typecho 配置。我们按照宝塔页面的数据库信息填写，其余的用户名，密码及邮箱自行填写即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171316.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171323.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171332.png"></p>
+<p><strong>Typecho 博客搭建完成！</strong></p>
 
                 
             </div>
@@ -457,7 +482,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/">https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/</a>
+                    <a href="https://qingliang2021.github.io/2021/04/21/typecho-da-jian-jiao-cheng/">https://qingliang2021.github.io/2021/04/21/typecho-da-jian-jiao-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,13 +697,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/17/markdown-bi-ji/">
+                <a href="/2021/05/15/yolov5-chao-xiang-xi-de-ru-men-ji-jiao-cheng-xun-lian-zi-zhi-shu-ju-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Markdown 笔记">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Yolov5 超详细的入门级教程 - 训练自制数据集">
                         
-                        <span class="card-title">Markdown 笔记</span>
+                        <span class="card-title">Yolov5 超详细的入门级教程 - 训练自制数据集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,14 +714,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -721,13 +746,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/16/hello-world/">
+                <a href="/2021/04/21/ubuntu-18.04-aria2-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Ubuntu 18.04 aria2 安装">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Ubuntu 18.04 aria2 安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,15 +763,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Insist
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
                 </div>
                 
             </div>

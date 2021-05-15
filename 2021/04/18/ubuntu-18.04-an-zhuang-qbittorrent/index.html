@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客, Insist">
+    <meta name="keywords" content="Ubuntu 18.04 安装 qBittorrent, Insist">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇博客 | Insist</title>
+    <title>Ubuntu 18.04 安装 qBittorrent | Insist</title>
     <link rel="icon" type="image/png" href="/favicon1.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客</h1>
+                    <h1 class="description center-align post-title">Ubuntu 18.04 安装 qBittorrent</h1>
                 </div>
             </div>
         </div>
@@ -380,8 +380,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Blog/" class="post-category">
-                                Blog
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -393,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-04-18
                 </div>
                 
 
@@ -417,20 +417,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="博客的创建"><a href="#博客的创建" class="headerlink" title="博客的创建"></a>博客的创建</h2><p> 2020 年 3 月 17 日，大学四年也来到了最后一个学期，毕业设计开始的时候，在做准备工作的过程中，发现这个世界有意思的东西好多。每个都想学好，无处下手，上周想找个东西能整理记录学习的历程，最终选择了写博客。</p>
-<h2 id="本博客包含的内容"><a href="#本博客包含的内容" class="headerlink" title="本博客包含的内容"></a>本博客包含的内容</h2><p>先挖坑，再慢慢完善。</p>
-<pre class="line-numbers language-none"><code class="language-none"> 一、工具类
-	1. Office
-	2. 博客
-二、计算机语言
-	1. C 语言
-	2. Python
-	3. R 语言
-三、Linux 系统
-四、其他
-	1. 公众号运营
-	2. 电脑组装 < span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="1-安装工具包"><a href="#1-安装工具包" class="headerlink" title="1. 安装工具包"></a>1. 安装工具包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> python-software-properties
+<span class="token function">apt-get</span> <span class="token function">install</span> software-properties-common<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>您可以在 Ubuntu 18.04 服务器上安装 qBittorrent 命令行客户端，并通过 qBittorrent Web 界面对其进行管理（您可以在 Web 浏览器中对其进行控制）。 SSH 进入您的 Ubuntu 18.04 服务器，并使用相同的 PPA 安装 qBittorrent 守护程序。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+<span class="token function">apt</span> <span class="token function">install</span> qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>注意，我们需要安装 <code>qbittorrent-nox</code> （不含 X），而不是 <code>qbittorrent</code>。 </p>
+<h2 id="2-启动"><a href="#2-启动" class="headerlink" title="2. 启动"></a>2. 启动</h2><p>qBittorrent-nox 旨在通过其功能丰富的 Web UI 进行控制，您可以使用以下命令启动 qBitorrent-nox：</p>
+<pre class="line-numbers language-none"><code class="language-none">qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是，不建议以这种方式启动 qBittorrent-nox，因为您无法在运行其他命令时运行它。 按 <code>Ctrl+C</code> 立即退出。 我们可以创建一个 systemd 服务单元，以便它可以在后台运行，也可以在系统启动时启动。</p>
+<p>创建 <code>qbittorrent-nox</code> 用户和组，以便它可以以非特权用户身份运行，这将提高服务器的安全性。</p>
+<pre class="line-numbers language-none"><code class="language-none">adduser --system --group qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>的 <code>--system</code> 标志表示我们正在创建系统用户而不是普通用户。 系统用户没有密码，也无法登录，这是 torrent 客户端所需的。 主目录 <code>/home/qbittorent-nox</code> 将为此用户创建。 您可能想将用户帐户添加到组中 <code>qbittorrent-nox</code> 使用以下命令，以便用户帐户可以访问 qBittorrent-nox 下载的文件。 文件下载到 <code>/home/qbittorrent-nox/Downloads/</code> 默认。 请注意，您需要重新登录才能使组更改生效。</p>
+<pre class="line-numbers language-none"><code class="language-none">adduser your-username qbittorrent-nox
+adduser qbittorrent-nox qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>然后使用您喜欢的文本编辑器（例如 nano）为 qbittorrent-nox 创建一个 systemd 服务文件。</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;qbittorrent-nox.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将以下行复制并粘贴到文件中。 如果还有另一个使用端口 8080 的服务，则需要将 qBitorrent 的端口号更改为诸如 8081 之类的其他名称。 <code>-d</code> 在此 systemd 服务单元中需要（守护程序）选项。</p>
+<pre class="line-numbers language-none"><code class="language-none">[Unit]
+Description&#x3D;qBittorrent Command Line Client
+After&#x3D;network.target
+
+[Service]
+#Do not change to &quot;simple&quot;
+Type&#x3D;forking
+User&#x3D;qbittorrent-nox
+Group&#x3D;qbittorrent-nox
+UMask&#x3D;007
+ExecStart&#x3D;&#x2F;usr&#x2F;bin&#x2F;qbittorrent-nox -d --webui-port&#x3D;8080
+Restart&#x3D;on-failure
+
+[Install]
+WantedBy&#x3D;multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>要在 Nano 文本编辑器中保存文件，请按 <code>Ctrl+O</code>，然后按 <code>Enter</code> 确认。 按 <code>Ctrl+X</code> 退出。 现在，使用以下命令启动 qBittorrent-nox。</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo systemctl start qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>请注意，如果您更改了 systemd 服务文件，则需要重新加载 systemd 守护程序才能使更改生效。</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo systemctl daemon-reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>您可能还希望在系统启动时启用自动启动。</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo systemctl enable qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>检查其状态：</p>
+<pre class="line-numbers language-none"><code class="language-none">systemctl status qbittorrent-nox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171106.png"></p>
+<p>您可以看到 qBittorrent-nox 正在运行，并且在启动时启用了自动启动。</p>
+<h2 id="3-访问-qBittorrent-Web-UI"><a href="#3-访问-qBittorrent-Web-UI" class="headerlink" title="3. 访问 qBittorrent Web UI"></a>3. 访问 qBittorrent Web UI</h2><p>要从本地网络访问 qBittorrent Web UI，请输入 Ubuntu 服务器的专用 IP 地址，然后输入如下的端口号。</p>
+<pre class="line-numbers language-none"><code class="language-none">YourIP:8080<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>用户名是 admin。 默认密码为 “ adminadmin”。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171117.png"></p>
+<p>默认的 Web 界面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171128.png"></p>
+<p>可以去 <code>Tools</code> &gt; <code>Options</code> 并选择 “ Web UI” 选项卡，切换用户界面语言。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171138.png"></p>
+<p>强烈建议更改默认的用户名和密码。 去 <code>Tools</code> &gt; <code>Options</code> 并选择 “ Web UI” 选项卡。 在 “身份验证” 部分下，更改用户名和密码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171143.png"></p>
+<p>现在，您可以开始在 Ubuntu 18.04 服务器上下载种子了。 您可以选择上传本地种子或添加磁力链接。 文件下载到 <code>/home/qbittorrent-nox/Downloads/</code> 默认。</p>
 
                 
             </div>
@@ -457,7 +508,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/">https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/</a>
+                    <a href="https://qingliang2021.github.io/2021/04/18/ubuntu-18.04-an-zhuang-qbittorrent/">https://qingliang2021.github.io/2021/04/18/ubuntu-18.04-an-zhuang-qbittorrent/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,13 +723,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/17/markdown-bi-ji/">
+                <a href="/2021/04/19/ubuntu-18.04-rclone-gua-zai-onedrive/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Markdown 笔记">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Ubuntu 18.04 rclone 挂载 Onedrive">
                         
-                        <span class="card-title">Markdown 笔记</span>
+                        <span class="card-title">Ubuntu 18.04 rclone 挂载 Onedrive</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,14 +740,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -721,13 +772,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/16/hello-world/">
+                <a href="/2021/04/15/ubuntu-18.04-an-zhuang-transmission/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Ubuntu 18.04 服务器使用指南">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Ubuntu 18.04 服务器使用指南</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,15 +789,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Insist
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
                 </div>
                 
             </div>

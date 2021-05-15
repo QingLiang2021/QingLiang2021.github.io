@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客, Insist">
+    <meta name="keywords" content="Ubuntu 18.04 服务器使用指南, Insist">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇博客 | Insist</title>
+    <title>Ubuntu 18.04 服务器使用指南 | Insist</title>
     <link rel="icon" type="image/png" href="/favicon1.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客</h1>
+                    <h1 class="description center-align post-title">Ubuntu 18.04 服务器使用指南</h1>
                 </div>
             </div>
         </div>
@@ -380,8 +380,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Blog/" class="post-category">
-                                Blog
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -393,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-04-15
                 </div>
                 
 
@@ -417,20 +417,97 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="博客的创建"><a href="#博客的创建" class="headerlink" title="博客的创建"></a>博客的创建</h2><p> 2020 年 3 月 17 日，大学四年也来到了最后一个学期，毕业设计开始的时候，在做准备工作的过程中，发现这个世界有意思的东西好多。每个都想学好，无处下手，上周想找个东西能整理记录学习的历程，最终选择了写博客。</p>
-<h2 id="本博客包含的内容"><a href="#本博客包含的内容" class="headerlink" title="本博客包含的内容"></a>本博客包含的内容</h2><p>先挖坑，再慢慢完善。</p>
-<pre class="line-numbers language-none"><code class="language-none"> 一、工具类
-	1. Office
-	2. 博客
-二、计算机语言
-	1. C 语言
-	2. Python
-	3. R 语言
-三、Linux 系统
-四、其他
-	1. 公众号运营
-	2. 电脑组装 < span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h3><p>Transmission 全称 TransmissionBittorrent，由 C 开发而成（Mac OS 上用的是 Objective-C），硬件资源消耗极少，界面极度精简。Transmission 作为专业的 BitTorrent 客户端，被 PT 站所接受。Transmission 被众多 linux 发行版，包括 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Ubuntu">Ubuntu</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Mandriva">Mandriva</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Mint">Mint</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Fedora">Fedora</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Puppy">Puppy</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/openSUSE">openSUSE</a> 选作默认 BT 下载工具。这篇文章博主将介绍如何在 VPS 中安装 Transmission。</p>
+<h3 id="2-特性"><a href="#2-特性" class="headerlink" title="2. 特性"></a>2. 特性</h3><ul>
+<li>开源跨平台，由社区志愿者开发</li>
+<li>绝无各种广告及浏览器工具栏插件等</li>
+<li>完全免费，绝无收费高级版与免费基础版等区别</li>
+<li>数据加密、损坏修复</li>
+<li>来源交换 （支持 Bittorrent、Ares、迅雷、Vuze 和 μTorrent 等等）</li>
+<li>硬件资源消耗极低，甚至比某些命令行 BT 工具都要低</li>
+<li>可以选择种子中要下载的文件</li>
+<li>支持 encryption、web 界面、远程控制、磁力链接、DHT、uTP、uPnP、NAT-PMP</li>
+<li>支持目录监控、全局或单一速度限制</li>
+<li>制作种子、快速继续</li>
+<li>黑名单，可以按时升级（资料来自 PeerGuardian 和 PeerBlock）</li>
+<li>单一监听端口、带宽计划、整理（过滤）</li>
+<li>HTTPS tracker 支持以及 tracker 编辑功能支持</li>
+<li>支持 IPv6</li>
+<li>对应不同平台有着特定的图形用户界面</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>本文以 **Ubuntu 18.04 系统 ** 为例，Transmission 有多种客户端，本次选用的是：</p>
+<blockquote>
+<p><strong>transmission-daemon</strong>: 一个 Transmission 的后台守护程序，本身不具备操作指令，只能通过 Web 客户端或者 transmission-remote-cli 来进行控制。这个程序特别适合安装在服务器上或者嵌入式系统中，以及一些没有显示器的设备上。</p>
+</blockquote>
+<h3 id="1-安装-transmission-daemon"><a href="#1-安装-transmission-daemon" class="headerlink" title="1. 安装 transmission-daemon"></a>1. 安装 transmission-daemon</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> transmission-daemon<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>安装 transmission-daemon 的同时也会自动安装 transmission-cli，即 Transmission 命令行客户端</p>
+<h3 id="2-修改-transmission-daemon-配置文件"><a href="#2-修改-transmission-daemon-配置文件" class="headerlink" title="2. 修改 transmission-daemon 配置文件"></a>2. 修改 transmission-daemon 配置文件</h3><p>这里首先了解一下 transmission-daemon 的使用命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 </span>
+<span class="token function">sudo</span> <span class="token function">service</span> transmission-daemon start
+<span class="token comment"># 停止 </span>
+<span class="token function">sudo</span> <span class="token function">service</span> transmission-daemon stop
+<span class="token comment"># 重启 </span>
+<span class="token function">sudo</span> <span class="token function">service</span> transmission-daemon restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先执行一次启动和停止命令，生成配置文件，接着编辑 transmission-daemon 配置文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /var/lib/transmission-daemon/info/settings.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改相关参数 </span>
+<span class="token string">"download-dir"</span><span class="token builtin class-name">:</span> <span class="token string">"/sdb/bt/Downloads"</span>, 下载完成的保存路径
+<span class="token string">"incomplete-dir"</span><span class="token builtin class-name">:</span> <span class="token string">"/sdb/bt/tmp"</span>, 未下载完成的保存路径
+<span class="token string">"incomplete-dir-enabled"</span><span class="token builtin class-name">:</span> true, 启用未下载完成的保存路径
+<span class="token string">"rpc-authentication-required"</span><span class="token builtin class-name">:</span> true, 远程控制验证，默认关闭
+<span class="token string">"rpc-password"</span><span class="token builtin class-name">:</span> <span class="token string">"yourpassword"</span>, 默认密码这里是加密的，启动后会自动加密
+<span class="token string">"rpc-port"</span><span class="token builtin class-name">:</span> <span class="token number">9091</span>, 网页 GUI 的端口号，可自行修改
+<span class="token string">"rpc-username"</span><span class="token builtin class-name">:</span> <span class="token string">"yourusername"</span>, 远程电脑登录网页 GUI 的用户名称
+<span class="token string">"rpc-whitelist"</span><span class="token builtin class-name">:</span> <span class="token string">"127.0.0.1"</span>, 允许远程连接的 IP 地址白名单，支持通配符，多个 IP 以逗号分隔
+<span class="token string">"rpc-whitelist-enabled"</span><span class="token builtin class-name">:</span> false, 启用 IP 认证模式，如果启用，那么只能在白名单的地址才能连接 < span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改完毕后使用 Ctrl+X，选择 y 保存并退出<br>此时再执行启动命令，访问：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://ip 地址：9091<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>输入刚才设置的帐号密码，即可访问 Transmission 的 Web 页面。</p>
+<h2 id="三、界面美化"><a href="#三、界面美化" class="headerlink" title="三、界面美化"></a>三、界面美化</h2><p>而 <code>transmission-web-control</code> 项目则为 Transmission 进行了 Web 界面的汉化，完善了功能，以及增加了 Tracker 服务器分组及状态，更方便 PT 下载。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://www.jiyiblog.com/go/aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==">https://github.com/ronggang/transmission-web-control</a></p>
+<h3 id="1-界面预览"><a href="#1-界面预览" class="headerlink" title="1. 界面预览"></a>1. 界面预览</h3><p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171035.png"></p>
+<h3 id="2-安装方法"><a href="#2-安装方法" class="headerlink" title="2. 安装方法"></a>2. 安装方法</h3><h4 id="1-获取安装脚本"><a href="#1-获取安装脚本" class="headerlink" title="1. 获取安装脚本"></a>1. 获取安装脚本</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="2-执行安装脚本"><a href="#2-执行安装脚本" class="headerlink" title="2. 执行安装脚本"></a>2. 执行安装脚本</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> install-tr-control-cn.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>执行后出现如下界面：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/QingLiang2021/blog.img001/img/2021/20210515171041.png"></p>
+<p>此时选择 1 即可安装</p>
+<p>安装完毕后，Ctrl+F5 刷新即可看到全新的 Web 界面。</p>
+<h2 id="四、做种方法"><a href="#四、做种方法" class="headerlink" title="四、做种方法"></a>四、做种方法</h2><pre class="line-numbers language-none"><code class="language-none">Options:
+-p 表示这是私用的种子，PT 的话这个必须要加上；
+-o 生成的种子输出位置，不要忘记把名字打上；
+-t tracker 的地址，我用的老师站的 tracker 的做范本，如果大家需要做其他 PT 站的种子，请自行修改
+-s 每个文件块的大小，单位是 KB，我设置的是 2M，也就是 2048KB
+-c 表示备注，可以添加你自己的标注，这里建议添加自己喜欢的备注名称 < span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-使用-find-命令找到环境内的-transmission-安装位置。"><a href="#1-使用-find-命令找到环境内的-transmission-安装位置。" class="headerlink" title="1. 使用 find 命令找到环境内的 transmission 安装位置。"></a>1. 使用 find 命令找到环境内的 transmission 安装位置。</h3><pre class="line-numbers language-none"><code class="language-none">find &#x2F; -name transmission-create<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-使用-cd-命令进入-transmission-的-bin-目录"><a href="#2-使用-cd-命令进入-transmission-的-bin-目录" class="headerlink" title="2. 使用 cd 命令进入 transmission 的 bin 目录"></a>2. 使用 cd 命令进入 transmission 的 bin 目录</h3><pre class="line-numbers language-none"><code class="language-none">cd &#x2F; 你的地址 &#x2F;transmission&#x2F;bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="3-使用-ls-命令检测-bin-目录内容"><a href="#3-使用-ls-命令检测-bin-目录内容" class="headerlink" title="3. 使用 ls 命令检测 bin 目录内容"></a>3. 使用 ls 命令检测 bin 目录内容</h3><pre class="line-numbers language-none"><code class="language-none">ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果正常反馈，你会看到信息至少有一条显示：</p>
+<pre class="line-numbers language-none"><code class="language-none">transmission-create<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><em>（如果没有显示，请升级至 transmission 最新版本 2.9.4）</em></p>
+<h3 id="4-使用-transmission-create-命令行制作你的种子"><a href="#4-使用-transmission-create-命令行制作你的种子" class="headerlink" title="4. 使用 transmission-create 命令行制作你的种子"></a>4. 使用 transmission-create 命令行制作你的种子</h3><p>例子：</p>
+<pre class="line-numbers language-none"><code class="language-none">.&#x2F;transmission-create -p -o &#x2F; 你要输出的种子文件位置 &#x2F; 你要输出的种子名称.torrent -t 你需要的 Tracker 服务器的 URL 是 -s 2048 &#x2F; 你需要做种原文件的位置 -c 你的备注 &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>参数</p>
+<pre class="line-numbers language-none"><code class="language-none">-p 表示这是私用的种子，PT 的话这个必须要加上；-o 生成的种子输出位置，不要忘记把名字打上；-t tracker 的地址，我用的老师站的 tracker 的做范本，如果大家需要做其他 PT 站的种子，请自行修改 - s 每个文件块的大小，单位是 KB，我设置的是 2M，也就是 2048KB-c 表示备注，可以添加你自己的标注，这里建议添加自己喜欢的备注名称 < span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>最后空一格写源文件的位置，也就是文件的存放位置，可以是一个文件或者一整个目录<br>最后可以空一行加一个 &amp;，这样即使关掉窗口也可以在后台运行<br>填完，回车，种子就在制作了。种子制作完成后，会显示一个</p>
+<pre class="line-numbers language-none"><code class="language-none">done！<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后你就可以打开你的资源管理器看到这个种子文件了。</p>
+<p>接下来就是上传这个种子到你的 PT 网站，上传之后，再下载一份种子，用这个下载下来的 torrent 文件，在 transmission 的 Web 管理界面里添加种子，记得要指定下载目录，开始验证文件，完成后，就可以做种了。</p>
+<p>Note： 之前制作的种子文件，同你上传后所下载的种子文件，其实是不同的，后者带有你自己帐号的 passkey，用来追踪你的下载和上传的量。</p>
 
                 
             </div>
@@ -457,7 +534,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/">https://qingliang2021.github.io/2021/03/16/wo-de-di-yi-pian-bo-ke/</a>
+                    <a href="https://qingliang2021.github.io/2021/04/15/ubuntu-18.04-an-zhuang-transmission/">https://qingliang2021.github.io/2021/04/15/ubuntu-18.04-an-zhuang-transmission/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,13 +749,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/17/markdown-bi-ji/">
+                <a href="/2021/04/18/ubuntu-18.04-an-zhuang-qbittorrent/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Markdown 笔记">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Ubuntu 18.04 安装 qBittorrent">
                         
-                        <span class="card-title">Markdown 笔记</span>
+                        <span class="card-title">Ubuntu 18.04 安装 qBittorrent</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,14 +766,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-18
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -721,13 +798,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/16/hello-world/">
+                <a href="/2021/03/19/bo-ke-da-jian-san-typora-picgo-github-gitee-tu-chuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="博客搭建 (三)：Typora + PicGo + Gitee 图床">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">博客搭建 (三)：Typora + PicGo + Gitee 图床</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,15 +815,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Insist
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Blog/" class="post-category">
+                                    Blog
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
                 </div>
                 
             </div>
